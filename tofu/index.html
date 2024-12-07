@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="icon" type="image/x-icon" href="../static/img/daes.jpg">
+    <link rel="stylesheet" href="../static/css/tofu-base.css" />
+    <script src="../static/js/tofu-base.js"></script>
+    <link rel="stylesheet" href="../static/css/wishlist.css" />
+    <style>
+
+    </style>
+  </head>
+  <body style="background-color: var(--bg-dark);">
+    <div id="root">
+      <header>
+        <h1>Wishlist</h1>
+        <div class="filter-wrapper">
+          <label><input type="search">🔎</label>
+        </div>
+      </header>
+      <main>
+        <div class="card" v-for="wishlist in wishlists">
+          <div class="card-title"><h2>{{ wishlist.username }}</h2></div>
+          <div class="card-body">
+            <ul class="wishlist-list">
+              <li v-for="title in wishlist.list">{{ title }}</li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script type="module">
+      'use strict';
+      import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      import { wishlists } from '/static/js/wishlist-esm.js';
+      var searchTerm = '';
+
+      const filter = (term) => {
+        if(term.trim() == ''){ return wishlists; }
+        let lists = wishlists.reduce((acc, curr) => {
+          let { list } = curr;
+        }, []);
+      };
+
+      createApp({
+        setup(){
+          const message = ref('Hello World!');
+          return {
+            message,
+            wishlists
+          };
+        }
+      }).mount('#root');
+    </script>
+  </body>
+</html>

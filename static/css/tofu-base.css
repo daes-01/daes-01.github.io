@@ -1,0 +1,19 @@
+/* defaults */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin:0;
+  padding:0;
+}
+html {
+  height:100vh;
+}
+
+:root {
+  --bg-dark: rgb(20,20,20);
+}
+body {
+  color:white;
+  background-color: var(--bg-dark);
+}
